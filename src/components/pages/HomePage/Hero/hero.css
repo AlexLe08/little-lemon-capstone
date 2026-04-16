@@ -1,0 +1,16 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.hero-content {
+    max-width: 300px;
+}
+
+.hero-img {
+    width: auto;
+    height: 200px;
+    margin-left: 20px;
+}

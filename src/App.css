@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+h1 {
+  font-size: 40pt;
+  font-family: Markazi Text, serif;
+  color: #F4CE14;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  font-family: Markazi Text Medium, serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h3 {
+  font-family: Karla Regular, sans-serif;
+  font-size: 18pt;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button {
+  font-size: 16pt;
+  padding: 10px 20px;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  font-family: Karla Regular, sans-serif;
+  font-size: 16pt;
+  line-height: 1.5;
+  color: #495E57;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  list-style-type: none;
+  padding: 0;
 }

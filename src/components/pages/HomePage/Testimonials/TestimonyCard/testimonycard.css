@@ -1,0 +1,14 @@
+.testimony-card {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #898989;
+}
+
+.testimony-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

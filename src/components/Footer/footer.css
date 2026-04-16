@@ -6,9 +6,13 @@
     color: #fff;
 }
 
+.logo {
+    width: 150px;
+    margin-right: 40px;
+}
+
 .footer-column {
-    flex: 1;
-    padding: 0 20px;
+    padding: 0 20px 0 0;
 }
 
 ul {

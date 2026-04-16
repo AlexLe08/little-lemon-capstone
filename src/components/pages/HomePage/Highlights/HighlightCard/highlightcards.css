@@ -1,0 +1,28 @@
+.highlight-card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+.highlight-card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+h3 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+}
+
+.price {
+    display: flex;
+    margin: 0;
+    font-size: 16px;
+    color: #888;
+}

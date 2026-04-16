@@ -1,5 +1,5 @@
 import "./hero.css";
-import restaurantImage from "../../images/restauranfood.jpg";
+import restaurantImage from "../../../../images/restauranfood.jpg";
 
 const HeroSection = () => {
   return (
