@@ -1,0 +1,18 @@
+nav {
+    align-items: center;
+}
+
+.ul-horizontal {
+    list-style-type: none;
+    padding: 0 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.ul-vertical {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+    flex-direction: column;
+    gap: 10px;
+}
