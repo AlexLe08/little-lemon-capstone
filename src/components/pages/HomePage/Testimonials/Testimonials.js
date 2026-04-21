@@ -3,7 +3,7 @@ import "./testimonials.css";
 
 const TestimonialsSection = () => {
     return (
-        <section className="testimonials-section">
+        <article className="testimonials-section">
             <h2>Testimonials</h2>
             <div className="testimonials-container">
                 <TestimonyCard
@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
                     testimony="I had the pleasure of dining at Little Lemon last week, and it was an unforgettable experience. The food was exquisite, and the service was top-notch. I can't wait to return!"
                 />
             </div>
-        </section>
+        </article>
     );
 }
 

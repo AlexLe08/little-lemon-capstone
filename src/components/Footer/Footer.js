@@ -10,12 +10,14 @@ const FooterSection = () => {
         <h3>Doormat Navigation</h3>
         <NavSection layout="vertical" />
       </div>
-      <div className="footer-column">
-        <h3>Contact</h3>
-        <p>Address: 123 Main Street, Chicago, IL 60601</p>
-        <p>Phone: (123) 456-7890</p>
-        <p>Email: info@littlelemon.com</p>
-      </div>
+      <address className="footer-column">
+        <h3>Contact Little Lemon</h3>
+        <ul>
+          <li><a href="https://maps.google.com/?q=123+Main+Street,+Chicago,+IL+60601" target="_blank" rel="noopener noreferrer">Address: 123 Main Street, Chicago, IL 60601</a></li>
+          <li><a href="tel:+11234567890">Phone: (123) 456-7890</a></li>
+          <li><a href="mailto:info@littlelemon.com">Email: info@littlelemon.com</a></li>
+        </ul>
+      </address>
       <div className="footer-column">
         <h3>Social Media Links</h3>
         <ul>

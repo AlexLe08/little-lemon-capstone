@@ -11,6 +11,10 @@
     margin-right: 40px;
 }
 
+address > h3 {
+    font-style: normal;
+}
+
 .footer-column {
     padding: 0 20px 0 0;
 }

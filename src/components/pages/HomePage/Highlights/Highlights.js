@@ -3,7 +3,7 @@ import HighlightsCard from "./HighlightCard/HighlightCard";
 
 const HighlightsSection = () => {
     return (
-        <section className="highlights">
+        <article className="highlights">
             <div className="highlights-header">
                  <h2>Specials!</h2>
                  <button className="menu-button">Online Menu</button>
@@ -28,7 +28,7 @@ const HighlightsSection = () => {
                     description="Delicious lemon-flavored dessert to satisfy your sweet tooth."
                 />
             </div>
-        </section>
+        </article>
     );
 }
 

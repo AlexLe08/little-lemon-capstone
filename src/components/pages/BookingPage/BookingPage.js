@@ -1,8 +1,11 @@
-const BookingPage = () => {
+import BookingForm from "../../pages/BookingPage/BookingForm/BookingForm";
+
+const BookingPage = (props) => {
   return (
-    <main>
+    <>
       <h1>Booking Page</h1>
-    </main>
+      <BookingForm {...props} />
+    </>
   );
 };
 

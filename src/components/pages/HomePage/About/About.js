@@ -4,7 +4,7 @@ import restaurantImage from "../../../../images/Mario and Adrian A.jpg";
 
 const AboutSection = () => {
   return (
-    <section className="about">
+    <article className="about">
       <div className="about-left-col">
         <h2>Little Lemon</h2>
         <h3>Restaurant</h3>
@@ -19,7 +19,7 @@ const AboutSection = () => {
           className="about-img"
         />
       </div>
-    </section>
+    </article>
   );
 };
 
