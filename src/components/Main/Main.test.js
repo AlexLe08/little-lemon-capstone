@@ -1,16 +1,41 @@
 import { initializeTimes, updateTimes } from "./Main";
+import { fetchAPI } from "../../fetchAPI";
 
-test('initializeTimes returns the correct initial times', () => {
+jest.mock("../../fetchAPI");
+
+
+
+const expectedTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+
+
+
+
+test("initializeTimes returns a nonempty array", () => {
+  fetchAPI.mockReturnValue(expectedTimes);
   const initialTimes = initializeTimes();
-  const expectedTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
-  expect(initialTimes).toEqual(expectedTimes);
+  expect(fetchAPI).toHaveBeenCalled();
+  expect(initialTimes).toEqual(["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
 });
 
-test('updateTimes returns the correct times for update_date action', () => {
-  const initialState = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  const action = { type: "update_date", payload: "2024-07-01" };
-  const newState = updateTimes(initialState, action);
 
-  expect(newState).toEqual(initialState);
+
+test('updateTimes returns times with selected date', () => {
+  const selectedDate = "2024-07-01";
+  fetchAPI.mockReturnValue(expectedTimes);
+
+  const action = { type: "update_date", payload: selectedDate };
+
+  const result = updateTimes([], action);
+
+  expect(fetchAPI).toHaveBeenCalledWith(new Date(selectedDate));
+  expect(result).toEqual(expectedTimes);
+});
+
+test('updateTimes returns current state for unknown action type', () => {
+  const currentState = ["17:00", "18:00"];
+  const action = { type: "unknown_action", payload: "2024-07-01" };
+
+  const result = updateTimes(currentState, action);
+
+  expect(result).toBe(currentState);
 });

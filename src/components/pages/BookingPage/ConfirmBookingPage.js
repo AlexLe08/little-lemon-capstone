@@ -1,4 +1,4 @@
-const BookingConfirmationPage = () => {
+const ConfirmBookingPage = () => {
   return (
     <div className="booking-confirmation-page">
       <h1>Booking Confirmed!</h1>
@@ -10,4 +10,4 @@ const BookingConfirmationPage = () => {
   );
 };
 
-export default BookingConfirmationPage;
+export default ConfirmBookingPage;

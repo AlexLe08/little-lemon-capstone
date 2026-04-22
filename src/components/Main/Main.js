@@ -1,9 +1,10 @@
 import "./main.css";
 import { useReducer, useEffect } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 import HomePage from "../pages/HomePage/HomePage";
 import BookingPage from "../pages/BookingPage/BookingPage";
-import { fetchAPI } from "../../fetchAPI";
+import ConfirmBookingPage from "../pages/BookingPage/ConfirmBookingPage";
+import { fetchAPI, submitAPI } from "../../fetchAPI";
 
 const updateTimes = (state, action) => {
   switch (action.type) {
@@ -18,11 +19,21 @@ const updateTimes = (state, action) => {
 
 const initializeTimes = () => {
   const date = new Date();
-  const times = fetchAPI(date);
-  return times;
+  return fetchAPI(date);
 };
 
 const MainSection = () => {
+  const navigate = useNavigate();
+
+  const submitForm = (formData) => {
+  const submitSuccess = submitAPI(formData);
+  if (submitSuccess) {
+    navigate("/confirm-booking");
+  } else {
+    alert("Failed to submit the form. Please try again.");
+  }
+};
+
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
@@ -45,9 +56,10 @@ const MainSection = () => {
           path="/booking"
           element={
             <BookingPage
-              availableTimesReducer={{
+              bookingPageProps={{
                 availableTimes: availableTimes,
                 dispatch: dispatch,
+                submitForm: submitForm,
               }}
             />
           }
@@ -56,6 +68,7 @@ const MainSection = () => {
         <Route path="/menu" element={<h1>Menu Page</h1>} />
         <Route path="/order-online" element={<h1>Order Online Page</h1>} />
         <Route path="/login" element={<h1>Login Page</h1>} />
+        <Route path="/confirm-booking" element={<ConfirmBookingPage />} />
       </Routes>
     </main>
   );

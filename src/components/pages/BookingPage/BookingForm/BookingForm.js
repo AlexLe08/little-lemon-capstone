@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../BookingForm/Bookingform.css";
 
 const BookingForm = (props) => {
-  const availableTimes = props.availableTimesReducer.availableTimes;
-  const dispatch = props.availableTimesReducer.dispatch;
+  const availableTimes = props.bookingPageProps.availableTimes;
+  const dispatch = props.bookingPageProps.dispatch;
+  const submitForm = props.bookingPageProps.submitForm;
 
   const [fields, setFields] = useState({
     date: new Date().toISOString().split("T")[0],
@@ -14,13 +15,7 @@ const BookingForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFields({
-      date: "",
-      time: "",
-      guests: 1,
-      occasion: "",
-    });
-    alert("Form submitted!");
+    submitForm(fields);
   };
 
   const handleDateChange = (event) => {
