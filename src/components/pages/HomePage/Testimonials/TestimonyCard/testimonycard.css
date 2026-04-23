@@ -12,23 +12,32 @@
     gap: 10px;
 }
 
+.testimony-row p {
+    margin: 0;
+    width: 20vw;
+}
+
 @media screen and (max-width: 500px) {
   .testimony-row{
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .testimony-row p {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 301px) {
   .testimony-card {
-    width: 50%;
+    width: 30vw;
     background-color: lightpink;
   }
 }
 
 @media screen and (max-width: 300px) {
   .testimony-card {
-    width: 100%;
+    width: 50vw;
     background-color: lightblue;
   }
 }
