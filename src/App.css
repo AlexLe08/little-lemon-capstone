@@ -6,11 +6,25 @@ h1 {
 
 h2 {
   font-family: Markazi Text Medium, serif;
+  color: #F4CE14;
 }
 
 h3 {
   font-family: Karla Regular, sans-serif;
   font-size: 18pt;
+}
+
+label {
+  font-family: Karla Regular, sans-serif;
+  font-size: 16pt;
+  color: #ffffff;
+}
+
+input, select {
+  font-size: 16pt;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {

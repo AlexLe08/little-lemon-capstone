@@ -40,19 +40,17 @@ describe("BookingForm Component renders correctly", () => {
 
   test("Renders the submit button", () => {
     render(<BookingForm bookingPageProps={bookingPageProps} />);
-    const submitButton = screen.getByRole("button", {
-      name: "Fill in all required fields",
-    });
+    const submitButton = screen.getByText("Fill in all required fields");
     expect(submitButton).toBeInTheDocument();
+    expect(submitButton).toHaveAttribute("disabled");
+    expect(submitButton).toHaveAttribute("aria-label", "Fill in all required fields before clicking");
   });
 });
 
 describe("BookingForm Component validation", () => {
   test("Submit button is disabled when required fields are empty", () => {
     render(<BookingForm bookingPageProps={bookingPageProps} />);
-    const submitButton = screen.getByRole("button", {
-      name: "Fill in all required fields",
-    });
+    const submitButton = screen.getByText("Fill in all required fields");
     expect(submitButton).toBeDisabled();
   });
 
@@ -66,10 +64,9 @@ describe("BookingForm Component validation", () => {
     fireEvent.change(timeSelect, { target: { value: "18:00" } });
     fireEvent.change(guestsInput, { target: { value: "4" } });
 
-    const submitButton = screen.getByRole("button", {
-      name: "Make Your Reservation",
-    });
+    const submitButton = screen.getByText("Make Your Reservation");
     expect(submitButton).toBeEnabled();
+    expect(submitButton).toHaveAttribute("aria-label", "On Click Make Your Reservation");
   });
 
   test("Displays validation errors when required fields are empty", async () => {
@@ -112,9 +109,7 @@ describe("BookingForm Component validation", () => {
     fireEvent.blur(timeSelect);
     fireEvent.blur(guestsInput);
 
-    const submitButton = await screen.findByRole("button", {
-      name: "Make Your Reservation",
-    });
+    const submitButton = screen.getByText("Make Your Reservation");
     fireEvent.click(submitButton);
 
     expect(bookingPageProps.submitForm).toHaveBeenCalled();

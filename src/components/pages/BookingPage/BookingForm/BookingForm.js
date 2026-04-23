@@ -42,9 +42,10 @@ const BookingForm = (props) => {
 
   return (
     <>
-      <h2>Book Now</h2>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="res-date">
+        <div className="form-container">
+          <h2>Book Now</h2>
+          <label htmlFor="res-date">
           Choose date<span className="required">*</span>
         </label>
         <input
@@ -101,15 +102,15 @@ const BookingForm = (props) => {
         {errors.occasion && touched.occasion ? (
           <p className="error">{errors.occasion}</p>
         ) : null}
-        <input
+        <button
           type="submit"
           disabled={!validateForm()}
-          value={
-            validateForm()
-              ? "Make Your Reservation"
-              : "Fill in all required fields"
-          }
-        />
+          aria-label={validateForm() ? "On Click Make Your Reservation" : "Fill in all required fields before clicking"}
+        >
+          {validateForm() ? "Make Your Reservation" : "Fill in all required fields"}
+        </button>
+        </div>
+        
       </form>
       <p>
         Occasion {values.occasion} on {values.date} at {values.time} for{" "}

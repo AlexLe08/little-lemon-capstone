@@ -2,7 +2,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 50px;
+    background-color: #495E57;
+}
+
+.hero p {
+    color: #fff;
+}
+
+.reserve-button {
+    padding: 10px 20px;
+    background-color: #F4CE14;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 16px;
+    text-decoration: none;
 }
 
 .hero-content {
