@@ -1,56 +1,86 @@
-import { useState } from "react";
 import "../BookingForm/Bookingform.css";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const BookingForm = (props) => {
-  const availableTimes = props.bookingPageProps.availableTimes;
-  const dispatch = props.bookingPageProps.dispatch;
-  const submitForm = props.bookingPageProps.submitForm;
+  const { availableTimes, dispatch, submitForm } = props.bookingPageProps;
 
-  const [fields, setFields] = useState({
-    date: new Date().toISOString().split("T")[0],
-    time: "",
-    guests: 1,
-    occasion: "",
+  const {
+    values,
+    errors,
+    touched,
+    getFieldProps,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      date: new Date().toISOString().split("T")[0],
+      time: "",
+      guests: 1,
+      occasion: "None",
+    },
+    validationSchema: Yup.object({
+      date: Yup.string().required("Date Required"),
+      time: Yup.string().required("Time Required"),
+      guests: Yup.number().required().min(1, "Must be at least 1 guest"),
+      occasion: Yup.string().optional(),
+    }),
   });
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    submitForm(fields);
+    submitForm(values);
   };
 
   const handleDateChange = (event) => {
-    const selectedDate = event.target.value;
-    setFields((prevState) => ({ ...prevState, date: selectedDate }));
-    dispatch({ type: "update_date", payload: selectedDate });
+    setFieldValue("date", event.target.value);
+    dispatch({ type: "update_date", payload: values.date });
+  };
+
+  const validateForm = () => {
+    return values.date && values.time && values.guests;
   };
 
   return (
     <>
       <h2>Book Now</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="res-date">Choose date</label>
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="res-date">
+          Choose date<span className="required">*</span>
+        </label>
         <input
           type="date"
           id="res-date"
           required
-          value={fields.date}
+          {...getFieldProps("date")}
           onChange={handleDateChange}
         />
-        <label htmlFor="res-time">Choose time</label>
+        {errors.date && touched.date ? (
+          <p className="error">{errors.date}</p>
+        ) : null}
+        <label htmlFor="res-time">
+          Choose time<span className="required">*</span>
+        </label>
         <select
           id="res-time"
           required
-          onChange={(e) =>
-            setFields((prevState) => ({ ...prevState, time: e.target.value }))
-          }
+          {...getFieldProps("time")}
+          disabled={availableTimes.length === 0}
         >
+          <option value="" disabled>
+            Select a time
+          </option>
           {availableTimes.map((time) => (
             <option key={time} value={time}>
               {time}
             </option>
           ))}
         </select>
-        <label htmlFor="guests">Number of guests</label>
+        {errors.time && touched.time ? (
+          <p className="error">{errors.time}</p>
+        ) : null}
+        <label htmlFor="guests">
+          Number of guests<span className="required">*</span>
+        </label>
         <input
           type="number"
           placeholder="1"
@@ -58,31 +88,32 @@ const BookingForm = (props) => {
           max="10"
           id="guests"
           required
-          onChange={(e) =>
-            setFields((prevState) => ({
-              ...prevState,
-              guests: parseInt(e.target.value),
-            }))
-          }
+          {...getFieldProps("guests")}
         />
+        {errors.guests && touched.guests ? (
+          <p className="error">{errors.guests}</p>
+        ) : null}
         <label htmlFor="occasion">Occasion</label>
-        <select
-          id="occasion"
-          onChange={(e) =>
-            setFields((prevState) => ({
-              ...prevState,
-              occasion: e.target.value,
-            }))
-          }
-        >
+        <select id="occasion" {...getFieldProps("occasion")}>
           <option>Birthday</option>
           <option>Anniversary</option>
         </select>
-        <input type="submit" value="Make Your reservation" />
+        {errors.occasion && touched.occasion ? (
+          <p className="error">{errors.occasion}</p>
+        ) : null}
+        <input
+          type="submit"
+          disabled={!validateForm()}
+          value={
+            validateForm()
+              ? "Make Your Reservation"
+              : "Fill in all required fields"
+          }
+        />
       </form>
       <p>
-        Occasion {fields.occasion} on {fields.date} at {fields.time} for{" "}
-        {fields.guests} guests
+        Occasion {values.occasion} on {values.date} at {values.time} for{" "}
+        {values.guests} guests
       </p>
     </>
   );
