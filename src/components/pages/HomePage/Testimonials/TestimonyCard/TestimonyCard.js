@@ -1,6 +1,7 @@
 import "./testimonycard.css";
 
-const TestimonyCard = ({ name, testimony, rating }) => {
+const TestimonyCard = (props) => {
+    const { name, testimony, rating } = props;
     return (
         <article className="testimony-card">
             <h3 aria-label={`${name}'s rating`}>{name}</h3>
@@ -15,7 +16,6 @@ const TestimonyCard = ({ name, testimony, rating }) => {
                 <img src={`https://i.pravatar.cc/150?u=${name}`} alt={name} className="testimony-avatar" />
                 <p>{testimony}</p>
             </div>
-
         </article>
     );
 }

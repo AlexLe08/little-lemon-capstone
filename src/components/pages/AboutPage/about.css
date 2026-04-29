@@ -9,6 +9,7 @@
   align-items: center;
   background-color: #495e57;
   align-items: flex-start;
+  border-radius: 0px 0px 16px 16px;
 }
 
 .about p {

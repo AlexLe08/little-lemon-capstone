@@ -29,3 +29,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 * The images being used for the Avatars for the Testmonies are what they are; the name inputted is what gives the image, even if it seems like they should look different. "John Doe" will result in the same image each time, unless you remove the part of the URL that adds the argument for a name, then it becomes random each time.
 
 * The breakpoints for responsive design used are 768px, as that is the lowest width for tablets (iPad mini) that can be previewed in the browser as any width smaller is for mobile phones like Samsung Gaalxy S20, Designs were adjusted to look accessible to iPhone SE users, as that is the smallest phone size the browser can preview in.
+
+* The following pages have routing set up but do not have content other than a single heading element: Menu, Order Online, and Login

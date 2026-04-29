@@ -2,10 +2,12 @@ import BookingForm from "../../pages/BookingPage/BookingForm/BookingForm";
 
 const BookingPage = (props) => {
   return (
-    <>
-      <h1 tabIndex={-1}>Reservations</h1>
+    <article className="booking-page">
+      <div className="heading-container">
+        <h1 tabIndex={-1}>Reservations</h1>
+      </div>
       <BookingForm {...props} />
-    </>
+    </article>
   );
 };
 

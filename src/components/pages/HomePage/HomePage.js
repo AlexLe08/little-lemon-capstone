@@ -1,4 +1,3 @@
-import AboutSection from "../AboutPage/About";
 import HeroSection from "./Hero/Hero";
 import HighlightsSection from "./Highlights/Highlights";
 import "./homepage.css";

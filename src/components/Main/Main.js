@@ -20,7 +20,6 @@ const updateTimes = (state, action) => {
 
 const initializeTimes = () => {
   const date = new Date();
-  console.log("Initializing times for date:", date);
   return fetchAPI(date);
 };
 
@@ -30,12 +29,13 @@ function MainSection() {
     return savedReservations ? JSON.parse(savedReservations) : [];
   });
 
+  const [submitOccurred, setSubmitOccurred] = useState(false);
+
   const navigate = useNavigate();
 
   const submitForm = (formData) => {
     const submitSuccess = submitAPI(formData);
     if (submitSuccess) {
-      console.log("Form submitted successfully:", formData);
       setReservations((prev) => {
         const updatedReservations = [...prev, formData];
         localStorage.setItem(
@@ -44,6 +44,7 @@ function MainSection() {
         );
         return updatedReservations;
       });
+      setSubmitOccurred(true);
       navigate("/confirm-booking");
     } else {
       alert("Failed to submit the form. Please try again.");
@@ -88,10 +89,39 @@ function MainSection() {
           }
         />
         <Route path="/about" element={<AboutSection />} />
-        <Route path="/menu" element={<h1 tabIndex={-1}>Menu Page</h1>} />
-        <Route path="/order-online" element={<h1 tabIndex={-1}>Order Online Page</h1>} />
-        <Route path="/login" element={<h1 tabIndex={-1}>Login Page</h1>} />
-        <Route path="/confirm-booking" element={<ConfirmBookingPage />} />
+        <Route
+          path="/menu"
+          element={
+            <div className="heading-container">
+              <h1 tabIndex={-1}>Menu</h1>
+            </div>
+          }
+        />
+        <Route
+          path="/order-online"
+          element={
+            <div className="heading-container">
+              <h1 tabIndex={-1}>Order Online</h1>
+            </div>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <div className="heading-container">
+              <h1 tabIndex={-1}>Login</h1>
+            </div>
+          }
+        />
+        <Route
+          path="/confirm-booking"
+          element={
+            <ConfirmBookingPage
+              submitOccurred={submitOccurred}
+              reservations={{ reservations: reservations }}
+            />
+          }
+        />
       </Routes>
     </main>
   );

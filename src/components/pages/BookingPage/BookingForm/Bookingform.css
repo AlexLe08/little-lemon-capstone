@@ -10,7 +10,7 @@ form {
   flex-direction: column;
   align-items: center;
   padding: 0 100px;
-  max-width: 300px;
+  width: 300px;
   background-color: #495e57;
   border-radius: 16px;
 }
@@ -55,4 +55,13 @@ button:disabled {
   font-size: 14px;
   margin-top: -10px;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .form-container {
+    text-align: center;
+    width: calc(100vw - 40px);
+    padding: 20px;
+  }
+
 }

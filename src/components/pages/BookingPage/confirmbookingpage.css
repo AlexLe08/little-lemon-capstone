@@ -1,0 +1,15 @@
+
+.booking-confirmation-page {
+    background-color: #495E57;
+    padding: 50px;
+    border-radius: 0px 0px 16px 16px;
+}
+
+.booking-confirmation-page p {
+    color: #ffffff;
+}
+
+.confirm-center-text {
+    margin: 50px 0;
+    text-align: center;
+}
