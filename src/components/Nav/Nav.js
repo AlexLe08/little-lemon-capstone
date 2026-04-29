@@ -1,41 +1,44 @@
+import { handleLinkRouteClick } from "../../utils";
 import "./nav.css";
 import { Link } from "react-router";
 
-const NavSection = ({ layout }) => {
+const linkNames = [
+  "Home",
+  "About",
+  "Menu",
+  "Reservations",
+  "Order online",
+  "Login",
+];
+
+const NavSection = (props) => {
+  const { layout, setToggleState } = props;
+
+  const handleLinkClick = async () => {
+    if (layout === "vertical-mobile") {
+      setToggleState(false);
+    }
+    handleLinkRouteClick();
+  };
+
+  const NavLinks = linkNames.map((name, index) => {
+    const path =
+      name === "Home" ? "/" : `/${name.toLowerCase().replace(/\s/g, "-")}`;
+    return (
+      <li key={name}>
+        <Link to={path} tabIndex={0} onClick={handleLinkClick}>
+          {name}
+        </Link>
+        {index < linkNames.length - 1 && layout === "vertical-mobile" && (
+          <div className="divider"></div>
+        )}
+      </li>
+    );
+  });
+
   return (
     <nav>
-      <ul className={`ul-${layout}`}>
-        <li>
-          <Link to="/" tabIndex={0}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" tabIndex={0}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/menu" tabIndex={0}>
-            Menu
-          </Link>
-        </li>
-        <li>
-          <Link to="/booking" tabIndex={0}>
-            Reservations
-          </Link>
-        </li>
-        <li>
-          <Link to="/order-online" tabIndex={0}>
-            Order online
-          </Link>
-        </li>
-        <li>
-          <Link to="/login" tabIndex={0}>
-            Login
-          </Link>
-        </li>
-      </ul>
+      <ul className={`ul-${layout} header-text`}>{NavLinks}</ul>
     </nav>
   );
 };

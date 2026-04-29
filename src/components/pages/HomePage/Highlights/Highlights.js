@@ -4,13 +4,14 @@ import { Link } from "react-router";
 import LemonDessertImage from "../../../../images/lemon dessert.jpg";
 import BruchettaImage from "../../../../images/bruchetta.svg";
 import GreekSaladImage from "../../../../images/greek salad.jpg";
+import { handleLinkRouteClick } from "../../../../utils";
 
 const HighlightsSection = () => {
   return (
     <article className="highlights">
       <div className="highlights-header">
         <h2>Specials!</h2>
-        <Link className="menu-button" to="/menu" tabIndex={0}>
+        <Link className="menu-button" to="/menu" tabIndex={0} onClick={handleLinkRouteClick}>
           Online Menu
         </Link>
       </div>
@@ -29,7 +30,7 @@ const HighlightsSection = () => {
         />
         <HighlightsCard
           image={LemonDessertImage}
-          title="Lemon Dessert"
+          title="Lemon Cake"
           price="$6.99"
           description="Delicious lemon-flavored dessert to satisfy your sweet tooth."
         />

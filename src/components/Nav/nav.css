@@ -8,10 +8,16 @@ nav {
     gap: 20px;
 }
 
-.ul-vertical {
+.ul-footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.ul-vertical-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 a {
@@ -23,9 +29,21 @@ a {
     color: #333333;
 }
 
-.ul-vertical > li > a {
+.ul-footer > li > a {
     color: #EDEFEE;
 }
+
+.ul-vertical-mobile > li > a {
+    color: #333333;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #aeaeae;
+    margin-top: 20px;
+}
+
 
 @media screen and (max-width: 767px) {
     .ul-horizontal {
@@ -33,7 +51,7 @@ a {
         justify-content: space-evenly;
     }
     
-    .ul-vertical {
+    .ul-footer {
         display: flex;
     }
 }

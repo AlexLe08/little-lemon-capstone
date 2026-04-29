@@ -76,7 +76,7 @@ function MainSection() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
-          path="/booking"
+          path="/reservations"
           element={
             <BookingPage
               bookingPageProps={{
@@ -88,9 +88,9 @@ function MainSection() {
           }
         />
         <Route path="/about" element={<AboutSection />} />
-        <Route path="/menu" element={<h1>Menu Page</h1>} />
-        <Route path="/order-online" element={<h1>Order Online Page</h1>} />
-        <Route path="/login" element={<h1>Login Page</h1>} />
+        <Route path="/menu" element={<h1 tabIndex={-1}>Menu Page</h1>} />
+        <Route path="/order-online" element={<h1 tabIndex={-1}>Order Online Page</h1>} />
+        <Route path="/login" element={<h1 tabIndex={-1}>Login Page</h1>} />
         <Route path="/confirm-booking" element={<ConfirmBookingPage />} />
       </Routes>
     </main>

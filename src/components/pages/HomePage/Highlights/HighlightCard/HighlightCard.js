@@ -8,8 +8,11 @@ const HighlightCard = ({ image, title, price, description }) => {
                <h3>{title}</h3>
                <p className="price">{price}</p>
             </div>
-            <p className="highlight-description">{description}</p>
-            <p className="highlight-order">Order this item</p>
+            <div className="highlight-card-body">
+                <p className="highlight-description">{description}</p>
+                <p className="highlight-order">Order this item</p>
+            </div>
+
         </article>
     );
 }

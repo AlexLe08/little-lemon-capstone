@@ -1,12 +1,14 @@
 import "./hero.css";
 import restaurantImage from "../../../../images/restauranfood.jpg";
 import { Link } from "react-router";
+import { handleLinkRouteClick } from "../../../../utils";
 
 const HeroSection = () => {
+
   return (
     <article className="hero">
       <div className="hero-content">
-        <h1>Little Lemon</h1>
+        <h1 tabIndex={-1}>Little Lemon</h1>
         <h2>Chicago</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -15,7 +17,7 @@ const HeroSection = () => {
           eget odio id enim efficitur convallis. Sed at nunc sed nisl convallis
           efficitur.
         </p>
-        <Link to="/booking" className="button-style" tabIndex={0}>
+        <Link to="/reservations" className="button-style" tabIndex={0} onClick={handleLinkRouteClick}>
           Reserve a Table
         </Link>
       </div>
