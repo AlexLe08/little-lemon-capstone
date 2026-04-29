@@ -22,7 +22,7 @@ const ConfirmBookingPage = (props) => {
               Little Lemon!
             </p>
             <div className="confirm-center-text">
-              <p>Reservation Made:</p>
+              <h2>Reservation Made:</h2>
               <p>{reservationInfo(recentReservationIndex)}</p>
             </div>
           </>
