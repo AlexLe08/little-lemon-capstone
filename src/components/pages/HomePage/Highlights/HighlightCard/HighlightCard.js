@@ -3,7 +3,7 @@ import "./highlightcards.css";
 const HighlightCard = ({ image, title, price, description }) => {
     return (
         <article className="highlight-card">
-            <img src={image} alt={title} className="highlight-image" />
+            <img src={image} alt={title} />
             <div className="highlight-card-header">
                <h3>{title}</h3>
                <p className="price">{price}</p>

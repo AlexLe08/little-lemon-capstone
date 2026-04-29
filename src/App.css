@@ -2,6 +2,8 @@ h1 {
   font-size: 40pt;
   font-family: Markazi Text, serif;
   color: #F4CE14;
+  margin: 0;
+  padding: 20px 0;
 }
 
 h2 {
@@ -27,13 +29,23 @@ input, select {
   border-radius: 4px;
 }
 
-button {
-  font-size: 16pt;
-  padding: 10px 20px;
-  background-color: #F4CE14;
+.button-style {
+  font-size: 16px;
+  color: #495E57;
+  font-weight: bold;
+  padding: 15px 30px;
+  background-color: #f4ce14;
+  cursor: pointer;
+  margin: 40px 0;
   border: none;
   border-radius: 16px;
   cursor: pointer;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.button-style:hover:not(:disabled) {
+  opacity: 0.7;
 }
 
 p {
@@ -46,4 +58,17 @@ p {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+*:focus-visible {
+    outline-offset: 5px;
+    outline: 4px solid #000000;
+}
+
+a:focus {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
 }

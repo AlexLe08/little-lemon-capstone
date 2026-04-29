@@ -1,5 +1,5 @@
 .highlights {
-    padding: 20px 0;
+    padding: 20px 50px;
 }
 
 .highlights-header {
@@ -12,10 +12,20 @@
 
 .menu-button {
     padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
     background-color: #333;
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 16px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+
+.menu-button:hover:not(:disabled) {
+  opacity: 0.7;
 }
 
 .highlights-cards {
@@ -24,4 +34,22 @@
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+    .highlights {
+        padding: 20px;
+    }
+    
+    .highlights-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .highlights-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 }

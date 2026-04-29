@@ -3,11 +3,12 @@
     justify-content:center;
     padding: 20px 70px;
     background-color: #333;
-    color: #fff;
+    color: #EDEFEE;
 }
 
 .logo {
-    width: 150px;
+    display: flex;
+    width: 200px;
     margin-right: 40px;
 }
 
@@ -15,11 +16,35 @@ address > h3 {
     font-style: normal;
 }
 
+.footer h3 {
+    color: #EE9972;
+}
+
 .footer-column {
     padding: 0 20px 0 0;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+li a {
+    text-decoration: none;
+    color: #EDEFEE;
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+    
+    .footer-column {
+        padding: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }

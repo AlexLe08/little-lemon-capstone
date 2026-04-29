@@ -1,21 +1,21 @@
 import "./testimonycard.css";
 
-const TestimonyCard = ({ name, testimony }) => {
+const TestimonyCard = ({ name, testimony, rating }) => {
     return (
         <article className="testimony-card">
-            <h3>Rating</h3>
-            <div>
-                <span className="star">★</span>
-                <span className="star">★</span>
-                <span className="star">★</span>
-                <span className="star">★</span>
-                <span className="star">☆</span>
+            <h3 aria-label={`${name}'s rating`}>{name}</h3>
+            <div aria-label={`Rating: ${rating} out of 5 stars`}>
+                {[...Array(5)].map((_, i) => (
+                    <span key={name + i} className="star">
+                        {i < rating ? '★' : '☆'}
+                    </span>
+                ))}
             </div>
             <div className="testimony-row">
                 <img src={`https://i.pravatar.cc/150?u=${name}`} alt={name} className="testimony-avatar" />
                 <p>{testimony}</p>
             </div>
-            <p>{name}</p>
+
         </article>
     );
 }

@@ -96,26 +96,23 @@ const BookingForm = (props) => {
         ) : null}
         <label htmlFor="occasion">Occasion</label>
         <select id="occasion" {...getFieldProps("occasion")}>
-          <option>Birthday</option>
-          <option>Anniversary</option>
+          <option value="None">None</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
         </select>
         {errors.occasion && touched.occasion ? (
           <p className="error">{errors.occasion}</p>
         ) : null}
         <button
           type="submit"
+          className="button-style"
           disabled={!validateForm()}
           aria-label={validateForm() ? "On Click Make Your Reservation" : "Fill in all required fields before clicking"}
         >
           {validateForm() ? "Make Your Reservation" : "Fill in all required fields"}
         </button>
         </div>
-        
       </form>
-      <p>
-        Occasion {values.occasion} on {values.date} at {values.time} for{" "}
-        {values.guests} guests
-      </p>
     </>
   );
 };

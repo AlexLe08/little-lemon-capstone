@@ -1,5 +1,5 @@
 import "./main.css";
-import { useReducer, useEffect } from "react";
+import { useReducer, useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router";
 import HomePage from "../pages/HomePage/HomePage";
 import BookingPage from "../pages/BookingPage/BookingPage";
@@ -19,20 +19,33 @@ const updateTimes = (state, action) => {
 
 const initializeTimes = () => {
   const date = new Date();
+  console.log("Initializing times for date:", date);
   return fetchAPI(date);
 };
 
-const MainSection = () => {
+function MainSection() {
+
+const [ reservations, setReservations ] = useState(() => {
+  const savedReservations = localStorage.getItem("reservations");
+  return savedReservations ? JSON.parse(savedReservations) : [];
+});
+
   const navigate = useNavigate();
 
   const submitForm = (formData) => {
-  const submitSuccess = submitAPI(formData);
-  if (submitSuccess) {
-    navigate("/confirm-booking");
-  } else {
-    alert("Failed to submit the form. Please try again.");
-  }
-};
+    const submitSuccess = submitAPI(formData);
+    if (submitSuccess) {
+      console.log("Form submitted successfully:", formData);
+      setReservations((prev) => {
+        const updatedReservations = [...prev, formData];
+        localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+        return updatedReservations;
+      });
+      navigate("/confirm-booking");
+    } else {
+      alert("Failed to submit the form. Please try again.");
+    }
+  };
 
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
@@ -40,16 +53,23 @@ const MainSection = () => {
     initializeTimes,
   );
 
-  useEffect(() => {
+   useEffect(() => {
+    let cleanup = false;
     function fetchInitialTimes() {
       const times = initializeTimes();
-      dispatch({ type: "update_date", payload: times });
+      if (!cleanup) {
+        dispatch({ type: "update_date", payload: times });
+      }
     }
     fetchInitialTimes();
+
+    return () => {
+      cleanup = true;
+    };
   }, []);
 
   return (
-    <main>
+    <main id="main-content">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route

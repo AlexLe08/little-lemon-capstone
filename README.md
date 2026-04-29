@@ -19,52 +19,13 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Note for Coursera Reviewers, or any other reviewers outside of that site
+* Project may or may not come with node_modules packed together, do make sure to run `npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Project was built with the latest React, node, and npm versions as of April 2026; this being different than what Coursera used, so few adjustments had to be made, such as importing React Routes differently and handling unit testing imports
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* The Script Coursera provides for pulling from an API simply did not work desite all troubleshooting done for it, and others have commented on this issue in Discussions for the course as well, so looks like to get the project finished, we had to add the script directly into the project as our own file; here it is fetchAPI.js. Since this is a direct file and not an API call, most of the code involving importing this may or may not use sync/await keywords to simulate it as if it were still an API.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* The images being used for the Avatars for the Testmonies are what they are; the name inputted is what gives the image, even if it seems like they should look different. "John Doe" will result in the same image each time, unless you remove the part of the URL that adds the argument for a name, then it becomes random each time.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* The breakpoints for responsive design used are 768px, as that is the lowest width for tablets (iPad mini) that can be previewed in the browser as any width smaller is for mobile phones like Samsung Gaalxy S20, Designs were adjusted to look accessible to iPhone SE users, as that is the smallest phone size the browser can preview in.

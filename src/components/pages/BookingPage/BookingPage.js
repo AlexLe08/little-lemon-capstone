@@ -3,7 +3,7 @@ import BookingForm from "../../pages/BookingPage/BookingForm/BookingForm";
 const BookingPage = (props) => {
   return (
     <>
-      <h1>Booking Page</h1>
+      <h1>Reservations</h1>
       <BookingForm {...props} />
     </>
   );
