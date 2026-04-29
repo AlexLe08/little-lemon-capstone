@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import BookingPage from "../pages/BookingPage/BookingPage";
 import ConfirmBookingPage from "../pages/BookingPage/ConfirmBookingPage";
 import { fetchAPI, submitAPI } from "../../fetchAPI";
+import AboutSection from "../pages/AboutPage/About";
 
 const updateTimes = (state, action) => {
   switch (action.type) {
@@ -24,11 +25,10 @@ const initializeTimes = () => {
 };
 
 function MainSection() {
-
-const [ reservations, setReservations ] = useState(() => {
-  const savedReservations = localStorage.getItem("reservations");
-  return savedReservations ? JSON.parse(savedReservations) : [];
-});
+  const [reservations, setReservations] = useState(() => {
+    const savedReservations = localStorage.getItem("reservations");
+    return savedReservations ? JSON.parse(savedReservations) : [];
+  });
 
   const navigate = useNavigate();
 
@@ -38,7 +38,10 @@ const [ reservations, setReservations ] = useState(() => {
       console.log("Form submitted successfully:", formData);
       setReservations((prev) => {
         const updatedReservations = [...prev, formData];
-        localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+        localStorage.setItem(
+          "reservations",
+          JSON.stringify(updatedReservations),
+        );
         return updatedReservations;
       });
       navigate("/confirm-booking");
@@ -53,7 +56,7 @@ const [ reservations, setReservations ] = useState(() => {
     initializeTimes,
   );
 
-   useEffect(() => {
+  useEffect(() => {
     let cleanup = false;
     function fetchInitialTimes() {
       const times = initializeTimes();
@@ -84,7 +87,7 @@ const [ reservations, setReservations ] = useState(() => {
             />
           }
         />
-        <Route path="/about" element={<h1>About Page</h1>} />
+        <Route path="/about" element={<AboutSection />} />
         <Route path="/menu" element={<h1>Menu Page</h1>} />
         <Route path="/order-online" element={<h1>Order Online Page</h1>} />
         <Route path="/login" element={<h1>Login Page</h1>} />
@@ -92,6 +95,6 @@ const [ reservations, setReservations ] = useState(() => {
       </Routes>
     </main>
   );
-};
+}
 
 export { MainSection as default, initializeTimes, updateTimes };
