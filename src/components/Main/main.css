@@ -1,0 +1,26 @@
+main {
+  padding: 0 70px;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url("../../images/bruchetta.svg");
+
+  min-height: 100vh;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  main {
+    padding: 0;
+  }
+}
+
+.heading-container {
+    background-color: #495E57;
+    padding: 50px;
+    border-radius: 0px 0px 16px 16px;
+}

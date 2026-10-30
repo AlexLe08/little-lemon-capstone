@@ -1,0 +1,58 @@
+.highlight-card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #EDEFEE;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.highlight-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.highlight-card img {
+    width: 100%;
+    max-height: 120px;
+    border-radius: 8px;
+}
+
+.highlight-card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.highlight-cards h3 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+}
+
+.highlight-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    display: flex;
+    margin: 0;
+    font-size: 16px;
+    color: #888;
+    align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+    .highlight-card {
+        width: 80%;
+    }
+
+    .highlight-card-header {
+        align-items: center;
+        gap: 10px;
+    }
+}

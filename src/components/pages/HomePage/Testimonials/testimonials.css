@@ -1,0 +1,24 @@
+.testimonials {
+    padding: 20px 50px;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+@media screen and (max-width: 767px) {
+    .testimonials {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
